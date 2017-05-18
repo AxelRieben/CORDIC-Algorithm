@@ -1,0 +1,133 @@
+@charset "utf-8";
+body {
+    background-color: rgb(4, 147, 114);
+    font-family: Gill Sans, Verdana, Arial;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 1.5vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: black;
+}
+
+header {
+    color: rgb(4, 147, 114);
+    width: 100%;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Hoefler Text', Georgia, 'Times New Roman', serif;
+    margin: 0;
+    font-size: 4vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-left: 4vw;
+}
+
+.subheading {
+    font-family: 'Hoefler Text', Georgia, 'Times New Roman', serif;
+    letter-spacing: .2em;
+    line-height: 1.1em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    margin: 0;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-left: 6vw;
+}
+
+section {
+    margin: 0;
+    padding: 0;
+    padding-left: 4vw;
+}
+
+output {
+    font-weight: bold;
+}
+
+#main {
+    width: 20vw;
+    padding-bottom: 30vh;
+    float: left;
+}
+
+#printSection {
+    float: right;
+    width: 70vw;
+}
+
+form {
+    margin: 0;
+    width: 15vw;
+    text-align: left;
+    display: inline-block;
+}
+
+button {
+    width: 200px;
+    background-color: white;
+    border-color: rgb(20, 20, 20);
+    border-width: 1px;
+    box-shadow: none;
+    border-radius: 3px;
+    font-weight: bold;
+    color: rgb(4, 147, 114);
+    margin: 5px;
+    padding: 2px;
+}
+
+button:hover {
+    background-color: rgb(222, 222, 222);
+}
+
+.inline-div {
+    margin-top: 2vh;
+    display: inline-block;
+    width: 14vw;
+    text-align: right;
+}
+
+footer {
+    color: rgb(4, 147, 114);
+    height: 20vh;
+    width: 91vw;
+    padding: 0;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    background-color: white;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    overflow-y: scroll;
+}
+
+#buttonSolve, #buttonShow, #out, #t, #mat, #selectMatrix {
+    display: none;
+}
+
+#plotly {
+    width: 85vw;
+    margin-top: 5vh;
+    margin-left: 2vw;
+}
+
+#pi {
+    margin-left: 0.55vw;
+}
