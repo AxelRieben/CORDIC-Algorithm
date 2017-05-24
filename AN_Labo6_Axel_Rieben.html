@@ -10,13 +10,14 @@
     <script type="text/javascript" src="plotly-basic.min.js" charset="utf-8"></script>
 </head>
 
-<body>
+<body onload="init()">
     <header>
         <h1>AN Labo6 Axel Rieben</h1>
         <h3 class="subheading">CORDIC Algorithm</h3>
     </header>
     <section id="main">
-        <button onclick="run">Run</button>
+        <input id="theta" type="number" min="0" max="90" step="0.01">
+        <button onclick="run()">Run</button>
         <p>Result: <output id="result"></output></p>
         <script type="text/javascript" src="AN_Labo6_Axel_Rieben.js"></script>
     </section>
