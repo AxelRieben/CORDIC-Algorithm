@@ -29,10 +29,11 @@ function run() {
         $('error').value = "";
 
         //Convert degrees into radians
-        //input = (input * Math.PI) / 180;
+        input = (input * Math.PI) / 180;
         console.log(input);
         //$('result').value = cordicSin(input);
-        $('result').value = cordic(input);
+        let resultArray = cordic(input);
+        $('result').value = "Cosinus : " + resultArray[0] + " Sinus : " + resultArray[1];
     }
 }
 
@@ -42,14 +43,14 @@ function run() {
 
 //constants
 var arctanTable = new Array();
-var iterations = 8;
+var iterations = 40;
 var K = 0.60725293510314;
 
 //create the lookup table with arctan value of 10^-i with i from 0 to the numerber of iterations
 function init() {
     for (let i = 0; i < iterations; i++) {
-        //arctanTable.push(Math.atan(Math.pow(2, -i)));
-        arctanTable.push(Math.atan(Math.pow(10, -i)));
+        arctanTable.push(Math.atan(Math.pow(2, -i)));
+        //arctanTable.push(Math.atan(Math.pow(10, -i)));
     }
     console.log(arctanTable);
 }
@@ -91,21 +92,37 @@ function cordicSin(theta) {
 
 //V2
 function cordic(alpha) {
+    //Initialisation of the system
     let x = 1;
     let y = 0;
     let r = 1;
 
+    //Loop the algorithm for the number of iterations
     for (let i = 0; i < iterations; i++) {
         while (alpha > arctanTable[i]) {
-            let z = (x - y) / Math.pow(10, i);
-            y = (y + x) / Math.pow(10, i);
-            x = z;
-            r = r * Math.sqrt(1 + Math.pow(10, -2 * i));
+            let dx = x - y * Math.pow(2, -i);
+            let dy = y + x * Math.pow(2, -i);
+            let rx = r * Math.sqrt(1 + Math.pow(Math.pow(2, -i), 2));
             alpha = alpha - arctanTable[i];
 
-            console.log("Cordic iteration : " + i + ", x = " + x + ", y = " + y + ", alpha = " + alpha);
+            x = dx;
+            y = dy;
+            r = rx;
+            console.log("Cordic iteration : " + i + ", x = " + x + ", y = " + y + ", r = " + r + ", alpha = " + alpha);
         }
+        console.log("Next iteration : " + i + " alpha = " + alpha);
+
+        let cos = x / r;
+        let sin = y / r;
+        let tan = sin / cos;
+
+        console.log("Result cos = " + cos + " sin = " + sin + " tan = " + tan);
     }
 
-    return x / r;
+    let cos = x / r;
+    let sin = y / r;
+    let tan = sin / cos;
+
+    console.log("Result cos = " + cos + " sin = " + sin + " tan = " + tan);
+    return [cos, sin];
 }
