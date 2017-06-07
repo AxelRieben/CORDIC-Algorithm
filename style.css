@@ -1,38 +1,31 @@
 @charset "utf-8";
+
+/* import Roboto Font */
+
+@import "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic";
 body {
     background-color: rgb(4, 147, 114);
-    font-family: Gill Sans, Verdana, Arial;
+    font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.4;
     padding: 0;
     margin: 0;
     color: white;
-    font-size: 1.5vh;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    color: white;
-}
-
-a:active {
-    color: black;
 }
 
 header {
     color: rgb(4, 147, 114);
     width: 100%;
-    background-color: white;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
 }
 
 h1 {
-    font-family: 'Hoefler Text', Georgia, 'Times New Roman', serif;
     margin: 0;
     font-size: 4vh;
     padding-top: 1vh;
@@ -48,36 +41,28 @@ h1 {
     font-weight: lighter;
     margin: 0;
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 2vh;
     margin-left: 6vw;
 }
 
 section {
-    margin: 0;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    color: rgb(4, 147, 114);
+    height: 22vh;
+    width: 91vw;
     padding: 0;
-    padding-left: 4vw;
-}
-
-output {
-    font-weight: bold;
-}
-
-#main {
-    width: 20vw;
-    padding-bottom: 30vh;
-    float: left;
-}
-
-#printSection {
-    float: right;
-    width: 70vw;
-}
-
-form {
     margin: 0;
-    width: 15vw;
-    text-align: left;
-    display: inline-block;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    background-color: #f5f5f5;
+    position: fixed;
+    bottom: 0;
+    overflow-y: scroll;
 }
 
 button {
@@ -97,37 +82,22 @@ button:hover {
     background-color: rgb(222, 222, 222);
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: black;
+}
+
 .inline-div {
     margin-top: 2vh;
     display: inline-block;
     width: 14vw;
     text-align: right;
-}
-
-footer {
-    color: rgb(4, 147, 114);
-    height: 20vh;
-    width: 91vw;
-    padding: 0;
-    padding-left: 4vw;
-    padding-right: 4vw;
-    background-color: white;
-    margin: 0;
-    position: fixed;
-    bottom: 0;
-    overflow-y: scroll;
-}
-
-#buttonSolve, #buttonShow, #out, #t, #mat, #selectMatrix {
-    display: none;
-}
-
-#plotly {
-    width: 85vw;
-    margin-top: 5vh;
-    margin-left: 2vw;
-}
-
-#pi {
-    margin-left: 0.55vw;
 }

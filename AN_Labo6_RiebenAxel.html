@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Axel Rieben">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AN Labo6 Rieben Axel</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="AN_Labo6_RiebenAxel.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>AN Labo6 Axel Rieben</h1>
+        <h3 class="subheading">CORDIC Algorithm</h3>
+    </header>
+    <section>
+        <p>
+            Choose an angle for the approximation (in degrees) : <span><input id="alpha" type="number" min="0" max="90" step="0.01" value="30"> <output id="errorAlpha"></output></span>
+        </p>
+
+        <p>
+            Choose a number of iteration : <span><input id="iteration" type="number" min="1" max="1000" step="1" value="40"> <output id="errorIteration"></output></span>
+        </p>
+
+        <p>
+            <button onclick="run()">Run</button>
+        </p>
+
+        <!-- Results -->
+        <table border="true">
+            <tr>
+                <th></th>
+                <th>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>cos</mi>
+                        <mo>(</mo>
+                        <mi>x</mi>
+                        <mo>)</mo>
+                    </math>
+                </th>
+                <th>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>sin</mi>
+                        <mo>(</mo>
+                        <mi>x</mi>
+                        <mo>)</mo>
+                    </math>
+                </th>
+                <th>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mi>tan</mi>
+                        <mo>(</mo>
+                        <mi>x</mi>
+                        <mo>)</mo>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mrow>
+                                <mi>sin</mi>
+                                <mo>(</mo>
+                                <mi>x</mi>
+                                <mo>)</mo>
+                            </mrow>
+                            <mn>
+                                <mi>cos</mi>
+                                <mo>(</mo>
+                                <mi>x</mi>
+                                <mo>)</mo>
+                            </mn>
+                        </mfrac>
+                    </math>
+                </th>
+            </tr>
+            <tr>
+                <th>CORDIC approximation</th>
+                <td><output id="cordicCos"></output></td>
+                <td><output id="cordicSin"></output></td>
+                <td><output id="cordicTan"></output></td>
+            </tr>
+            <tr>
+                <th>Javascript Math value</th>
+                <td><output id="jsCos"></output></td>
+                <td><output id="jsSin"></output></td>
+                <td><output id="jsTan"></output></td>
+            </tr>
+            <tr>
+                <th>Difference</th>
+                <td><output id="diffCos"></output></td>
+                <td><output id="diffSin"></output></td>
+                <td><output id="diffTan"></output></td>
+            </tr>
+        </table>
+
+        <p>
+            <output id="cordicTime"></output>
+        </p>
+    </section>
+    <footer>
+        <h2>Explanations</h2>
+        <h3>The footer is also scrollable</h3>
+        <p>TODO</p>
+        <p>
+            Axel Rieben ----- AN_Labo6_RiebenAxel.html ----- Numerical Algorithm, HE-Arc 2017
+        </p>
+    </footer>
+</body>
+
+</html>
