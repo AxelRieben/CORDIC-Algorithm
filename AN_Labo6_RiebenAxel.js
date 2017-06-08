@@ -36,8 +36,9 @@ function run() {
     } else {
         $('errorAlpha').value = "";
 
-        if (iteration > 100 || iteration < 1 || isNaN(iteration)) {
-            $('errorIteration').value = "The value must be a number beetween 1 and 100";
+        //Check if the number of iteration is beetween 1 and 1000 (above that the arctan value start becoming to small to make any difference)
+        if (iteration > 1000 || iteration < 1 || isNaN(iteration)) {
+            $('errorIteration').value = "The value must be a number beetween 1 and 1000";
         } else {
             $('errorIteration').value = "";
 
@@ -46,14 +47,14 @@ function run() {
             init();
 
             //Use CORDIC and calculate time
-            let time = Date.now();
+            let time = performance.now();
             let resultArray = cordic(input);
-            time = Date.now() - time;
+            time = performance.now() - time;
 
             //Show results in HTML
             $('cordicCos').value = resultArray[0];
             $('cordicSin').value = resultArray[1];
-            $('cordicTan').value = resultArray[0] / resultArray[1];
+            $('cordicTan').value = resultArray[1] / resultArray[0];
 
             $('jsCos').value = Math.cos(input);
             $('jsSin').value = Math.sin(input);
@@ -65,7 +66,6 @@ function run() {
 
             $('cordicTime').value = "Computation time for " + iterations + " iteration(s) : " + time + " ms";
         }
-
     }
 }
 
@@ -74,19 +74,22 @@ function run() {
 /*******************************************************/
 
 //Constants
-var omegaTable = new Array();
-var arctanTable = new Array();
+var omegaTable;
+var arctanTable;
 var iterations;
 
 //Create a table containing every values of 2^-i
 //And create a second table with arctan value of 2^-i
 //With i from 0 to the number of iterations
 function init() {
+    omegaTable = new Array();
+    arctanTable = new Array();
+
     for (let i = 0; i < iterations; i++) {
         omegaTable.push(Math.pow(2, -i));
         arctanTable.push(Math.atan(omegaTable[i]));
     }
-    console.log(arctanTable);
+    //console.log(arctanTable);
 }
 
 //Approximate cosine and sine of a given angle using the CORDIC method
@@ -112,7 +115,7 @@ function cordic(alpha) {
             y = dy;
             r = rx;
 
-            console.log("Cordic iteration : " + i + ", x = " + x + ", y = " + y + ", r = " + r + ", alpha = " + alpha);
+            //console.log("Cordic iteration : " + i + ", x = " + x + ", y = " + y + ", r = " + r + ", alpha = " + alpha);
         }
     }
 
